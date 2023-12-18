@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="h-screen">
     <div class="h-1/5 flex justify-center items-center">
       <div class="space-y-6">
@@ -147,4 +147,4 @@ export default {
     },
   },
 };
-</script>
+</script> -->

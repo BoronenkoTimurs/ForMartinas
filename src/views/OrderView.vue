@@ -1,5 +1,4 @@
 <template>
- 
   <main class="h-screen">
     <div class="bg-purple h-full">
       <p
@@ -8,10 +7,8 @@
         Make an order
       </p>
       <form
-        
-        @submit.prevent="handleSubmit" class="my-7 max-w-xl mx-auto p-10 rounded-xl">
-
-        <DeliveryCalculator />
+        @submit.prevent="handleSubmit"
+        class="my-7 max-w-xl mx-auto p-10 rounded-xl"
       >
         <div class="grid grid-cols-2 gap-4">
           <div>
@@ -19,9 +16,9 @@
             <input
               placeholder="Name"
               class="input"
-              type="email"
+              type="text"
               required
-              v-model="email"
+              v-model="name"
             />
           </div>
           <div>
@@ -29,9 +26,9 @@
             <input
               placeholder="Surname"
               class="input"
-              type="password"
+              type="text"
               required
-              v-model="password"
+              v-model="surname"
             />
           </div>
           <div>
@@ -51,17 +48,11 @@
               class="input"
               type="password"
               required
-              v-model="password"
+              v-model="number"
             />
           </div>
-          <div>
-            
-          </div>
-          <div>
-            
-           
-          </div>
         </div>
+        <DeliveryCalculator />
       </form>
       <div class="text-center flex place-content-end">
         <button
@@ -79,10 +70,8 @@
   </main>
 </template>
 
-
 <script>
-import DeliveryCalculator from '@/components/DeliveryCalculator.vue';
-
+import DeliveryCalculator from "@/components/DeliveryCalculator.vue";
 
 export default {
   components: {
