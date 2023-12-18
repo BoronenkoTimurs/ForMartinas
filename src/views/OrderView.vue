@@ -46,7 +46,7 @@
             <input
               placeholder="Phone Number"
               class="input"
-              type="password"
+              type="text"
               required
               v-model="number"
             />
