@@ -97,7 +97,7 @@ export default {
 
       const distance = this.calculateDistance(pickupCoord, deliveryCoord);
 
-      const deliveryTime = distance / 50;
+      const deliveryTime = distance / 50; //50km/h
 
       this.deliveryInfo = {
         distance,
