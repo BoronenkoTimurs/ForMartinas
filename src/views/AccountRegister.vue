@@ -30,23 +30,7 @@
             required
             v-model="password"
           />
-          <div class="text-red-400 font-bold" v-if="passwordErr">
-            {{ passwordErr }}
-          </div>
           
-          <label
-            class="inline-block mb-2 tracking-wide text-white opacity-50 uppercase font-bold"
-            >Repeat password</label
-          >
-          <input
-            class="block py-3 mb-2 outline-none px-2 w-full box-border text-slate-600 rounded-md"
-            type="password"
-            required
-            v-model="password"
-          />
-          <div class="text-red-400 font-bold" v-if="passwordErr">
-            {{ passwordErr }}
-          </div>
 
           <div
             class="inline-block tracking-wider mt-5 mr-2 px-2 py-2 rounded-2xl bg-slate-300 text-gray-500 font-bold cursor-pointer"

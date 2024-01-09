@@ -7,6 +7,8 @@ export default {
         pink: "#F13959",
         yellow: "#FBC13C",
         purple: "#7E7ADA",
+        white:  "#faf2f4",
+        orange: "#f2b50c",
 
         pinkHover: "#CA2D48",
         yellowHover: "#D89600",
