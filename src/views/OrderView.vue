@@ -50,6 +50,7 @@ import { RouterLink } from "vue-router";
               placeholder="Phone Number"
               class="input"
               type="number"
+              :type="'text'"
               required
               v-model="number"
             />
