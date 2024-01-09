@@ -12,7 +12,10 @@
         <p>Mareks Lazdiņš</p>
         <p>Martins Varcenko</p>
         <p>Konstantins Ziskins</p>
+<<<<<<< HEAD
         <p>Timurs Boronenko</p>
+=======
+>>>>>>> a5f34df1abb4b32f296d192d830013324b91a9f8
         <p>Timur Boronenko</p>
       </div>
     </div>
