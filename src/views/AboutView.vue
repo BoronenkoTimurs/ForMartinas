@@ -12,6 +12,7 @@
         <p>Mareks Lazdiņš</p>
         <p>Martins Varcenko</p>
         <p>Konstantins Ziskins</p>
+        <p>Timurs Boronenko</p>
       </div>
     </div>
   </div>

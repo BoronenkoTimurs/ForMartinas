@@ -4,6 +4,8 @@ import HomeView from "../views/HomeView.vue";
 import AccountView from "../views/AccountView.vue";
 import AboutView from "../views/AboutView.vue";
 import OrderView from "../views/OrderView.vue";
+import TyForOrder from "../views/TyForOrder.vue";
+import AccountRegister from "../views/AccountRegister.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,6 +30,18 @@ const router = createRouter({
       name: "account",
       component: AccountView,
     },
+    {
+      path: "/thankyou",
+      name: "thankyou",
+      component: TyForOrder,
+    },
+
+    {
+      path: "/register",
+      name: "register",
+      component: AccountRegister,
+    }
+
   ],
 });
 export default router;

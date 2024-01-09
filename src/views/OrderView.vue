@@ -1,3 +1,6 @@
+<script setup>
+import { RouterLink } from "vue-router";
+</script>
 <template>
   <main class="h-screen">
     <div class="bg-purple h-full">
@@ -46,7 +49,7 @@
             <input
               placeholder="Phone Number"
               class="input"
-              type="password"
+              type="number"
               required
               v-model="number"
             />
@@ -60,11 +63,11 @@
         >
           Next
         </button>
-        <button
-          class="bg-pink shadow-2xl border-none py-3 px-8 mr-10 mt-5 text-white rounded-md hover:bg-pinkHover"
-        >
-          Done
-        </button>
+        <RouterLink
+            to="/thankyou"
+            class="bg-pink shadow-2xl border-none py-3 px-8 mt-5 mr-10 text-white rounded-md"
+            >TyForOrder</RouterLink
+          >
       </div>
     </div>
   </main>

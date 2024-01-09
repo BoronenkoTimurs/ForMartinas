@@ -42,11 +42,11 @@
         </div>
         <div></div>
         <div class="text-center flex place-content-between">
-          <button
+          <RouterLink
+            to="/register"
             class="bg-signUpBtn border-none py-3 px-5 mt-5 text-white rounded-md"
+            >Registration</RouterLink
           >
-            Registration
-          </button>
           <button
             class="bg-loginBtn border-none py-3 px-5 mt-5 text-white rounded-md hover:bg-yellowHover"
           >
