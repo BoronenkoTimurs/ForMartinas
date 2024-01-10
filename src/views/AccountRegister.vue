@@ -22,7 +22,7 @@
         />
         <label
           class="inline-block mb-2 tracking-wide text-white opacity-50 uppercase font-bold"
-          >Password</label
+          >Passsword</label
         >
         <input
           class="block py-3 mb-2 outline-none px-2 w-full box-border text-slate-600 rounded-md"
