@@ -27,28 +27,21 @@ const router = createRouter({
       component: OrderView,
     },
     {
-      path: "/account",
-      name: "account",
+      path: "/auth/login",
+      name: "login",
       component: AccountView,
-    },
-    {
-      path: "/thankyou",
-      name: "thankyou",
-      component: TyForOrder,
     },
 
     {
-      path: "/register",
+      path: "/auth/register",
       name: "register",
       component: AccountRegister,
     },
-
     {
-      path: "/orderlist",
-      name: "orderlist",
-      component: OrderList,
-    }
-
+      path: "/tyfororder",
+      name: "UserProfile",
+      component: TyForOrder,
+    },
   ],
 });
 export default router;
