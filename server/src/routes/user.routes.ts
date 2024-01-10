@@ -8,7 +8,8 @@ import {
 import { isAuthenticated, isOwner } from "../middleware/auth";
 const userRouter = Router();
 
-userRouter.get("/users", isAuthenticated, getAllUsers);
+userRouter.get("/users", getAllUsers);
+// userRouter.get("/users", isAuthenticated, getAllUsers);
 userRouter.delete("/users/:id", isAuthenticated, isOwner, deleteUser);
 userRouter.patch("/users/:id", isAuthenticated, isOwner, updateUser);
 userRouter.put("/users/:id", isAuthenticated, isOwner, updateCredentials);

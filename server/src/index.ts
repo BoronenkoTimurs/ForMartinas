@@ -8,6 +8,7 @@ import MongoStore from "connect-mongo";
 import userRouter from "./routes/user.routes";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
+import cors from "cors";
 
 const app = express();
 
@@ -18,6 +19,7 @@ if (NODE_ENV === "development") {
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
 app.use(
   session({
     secret: "secret_key",

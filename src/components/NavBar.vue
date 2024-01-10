@@ -21,7 +21,7 @@ import { RouterLink } from "vue-router";
         <RouterLink
           activeClass="active"
           class="hover:text-pinkHover"
-          to="/account"
+          to="/auth/login"
           >Account</RouterLink
         >
       </div>

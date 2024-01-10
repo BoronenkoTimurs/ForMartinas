@@ -7,7 +7,7 @@
         Login
       </p>
       <form
-        @submit.prevent="handleSubmit"
+        @submit.prevent="loginUser"
         class="max-w-xs my-7 mx-auto p-10 rounded-xl"
       >
         <label
@@ -18,7 +18,7 @@
           class="block mb-2 py-3 outline-none px-2 w-full box-border text-slate-600 rounded-md"
           type="email"
           required
-          v-model="email"
+          v-model="user.email"
         />
         <label
           class="inline-block mb-2 tracking-wide text-white opacity-50 uppercase font-bold"
@@ -28,26 +28,17 @@
           class="block py-3 mb-2 outline-none px-2 w-full box-border text-slate-600 rounded-md"
           type="password"
           required
-          v-model="password"
+          v-model="user.password"
         />
-        <div class="text-red-400 font-bold" v-if="passwordErr">
-          {{ passwordErr }}
-        </div>
-        <div
-          class="inline-block tracking-wider mt-5 mr-2 px-2 py-2 rounded-2xl bg-slate-300 text-gray-500 font-bold cursor-pointer"
-          v-for="skill in skills"
-          :key="skill"
-        >
-          <span @click="removeSkill(skill)">{{ skill }}</span>
-        </div>
-        <div></div>
+
         <div class="text-center flex place-content-between">
           <RouterLink
-            to="/register"
+            to="/auth/register"
             class="bg-signUpBtn border-none py-3 px-5 mt-5 text-white rounded-md"
             >Registration</RouterLink
           >
           <button
+            type="submit"
             class="bg-loginBtn border-none py-3 px-5 mt-5 text-white rounded-md hover:bg-yellowHover"
           >
             Login
@@ -58,38 +49,33 @@
   </div>
 </template>
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
-      email: "",
-      password: "",
-      role: "designer",
-      termns: "",
-      tempSkill: "",
-      skills: [],
-      passwordErr: "",
+      user: {
+        email: "",
+        password: "",
+      },
     };
   },
+  mounted() {
+    axios.get("http://localhost:3333/users").then((res) => {
+      console.log(res.data);
+    });
+  },
   methods: {
-    addSkill(e) {
-      if (e.key === "," && this.tempSkill) {
-        if (!this.skills.includes(this.tempSkill)) {
-          this.skills.push(this.tempSkill);
-          this.tempSkill = "";
-        }
-        this.tempSkill = "";
-      }
-    },
-    removeSkill(skill) {
-      this.skills = this.skills.filter((item) => {
-        return skill !== item;
-      });
-    },
-    handleSubmit() {
-      this.passwordErr =
-        this.password.length > 5
-          ? ""
-          : "Small password! Need more than 9 symbols!";
+    async loginUser() {
+      try {
+        const response = await axios.post(
+          "http://localhost:3333/auth/login",
+          this.user
+        );
+        this.$router.push({
+          name: "UserProfile",
+          params: { userId: response.data.id },
+        });
+      } catch (error) {}
     },
   },
 };
