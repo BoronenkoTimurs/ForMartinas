@@ -49,6 +49,14 @@
             Registration
           </button>
         </div>
+
+        <RouterLink
+          activeClass="active"
+          class=" flex items-center justify-center py-4 hover:text-yellowHover"
+          to="/auth/login"
+          >return to login</RouterLink
+        >
+
       </form>
     </div>
   </div>

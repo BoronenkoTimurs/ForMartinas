@@ -25,16 +25,6 @@ import { RouterLink } from "vue-router";
             />
           </div>
           <div>
-            <label class="label">Surname</label>
-            <input
-              placeholder="Surname"
-              class="input"
-              type="text"
-              required
-              v-model="surname"
-            />
-          </div>
-          <div>
             <label class="label">Email</label>
             <input
               placeholder="Email"
@@ -44,6 +34,8 @@ import { RouterLink } from "vue-router";
               v-model="email"
             />
           </div>
+        
+          
           <div>
             <label class="label">Phone Number</label>
             <input
@@ -60,7 +52,7 @@ import { RouterLink } from "vue-router";
       <div class="text-center flex place-content-end">
         
         <RouterLink
-            to="/thankyou"
+            to="/tyfororder"
             class="bg-pink shadow-2xl border-none py-3 px-8 mt-5 mr-20 text-white rounded-md"
             >Make order</RouterLink
           >

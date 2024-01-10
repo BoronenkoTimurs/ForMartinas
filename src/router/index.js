@@ -7,6 +7,7 @@ import OrderView from "../views/OrderView.vue";
 import TyForOrder from "../views/TyForOrder.vue";
 import AccountRegister from "../views/AccountRegister.vue";
 import OrderList from "../views/OrderList.vue";
+import TyForRegister from "../views/TyForRegister.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -39,8 +40,13 @@ const router = createRouter({
     },
     {
       path: "/tyfororder",
-      name: "UserProfile",
+      name: "tyfororder",
       component: TyForOrder,
+    },
+    {
+      path: "/tyforregister",
+      name: "UserProfile",
+      component: TyForRegister,
     },
   ],
 });
