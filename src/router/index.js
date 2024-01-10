@@ -8,6 +8,7 @@ import TyForOrder from "../views/TyForOrder.vue";
 import AccountRegister from "../views/AccountRegister.vue";
 import OrderList from "../views/OrderList.vue";
 import TyForRegister from "../views/TyForRegister.vue";
+import AfterLogin from "../views/AfterLogin.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -48,6 +49,12 @@ const router = createRouter({
       name: "UserProfile",
       component: TyForRegister,
     },
+    {
+      path: "/afterlogin",
+      name: "afterlogin",
+      component: AfterLogin,
+    },
+
   ],
 });
 export default router;

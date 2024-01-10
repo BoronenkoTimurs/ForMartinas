@@ -16,15 +16,15 @@
             
      
           </div>
-        <div
-          class="flex flex-col font-bold font-monoopacity-400 text-orange text-center text-5xl"
+        
+          
+        <RouterLink
+          activeClass="active"
+          class=" flex items-center font-bold justify-center py-4 hover:text-yellowHover text-4xl"
+          to="/afterlogin"
+          >return to account</RouterLink
         >
-          <p>
-            
-            Your order
-            
-          </p>
-        </div>
+
       </div>
     </div>
   </template>
