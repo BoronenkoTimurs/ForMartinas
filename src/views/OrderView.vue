@@ -58,15 +58,11 @@ import { RouterLink } from "vue-router";
         <DeliveryCalculator />
       </form>
       <div class="text-center flex place-content-end">
-        <button
-          class="bg-grey shadow-2xl border-none py-3 px-8 mt-5 mr-10 text-white rounded-md"
-        >
-          Next
-        </button>
+        
         <RouterLink
             to="/thankyou"
-            class="bg-pink shadow-2xl border-none py-3 px-8 mt-5 mr-10 text-white rounded-md"
-            >TyForOrder</RouterLink
+            class="bg-pink shadow-2xl border-none py-3 px-8 mt-5 mr-20 text-white rounded-md"
+            >Make order</RouterLink
           >
       </div>
     </div>

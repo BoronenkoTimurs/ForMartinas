@@ -44,10 +44,24 @@
             <button
               class="bg-signUpBtn border-none  py-3 px-5 mt-5  text-white rounded-md"
             >
-              Registration
+              Register
+
             </button>
             
+
+            
+          </div> 
+          <div>
+            <RouterLink
+          activeClass="active"
+          
+          class="  flex  text-center py-4 justify-center font-bold hover:text-yellowHover"
+          to="/account"
+          >return to login</RouterLink
+        >
           </div>
+         
+
         </form>
       </div>
     </div>

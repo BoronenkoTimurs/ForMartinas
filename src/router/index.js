@@ -6,6 +6,7 @@ import AboutView from "../views/AboutView.vue";
 import OrderView from "../views/OrderView.vue";
 import TyForOrder from "../views/TyForOrder.vue";
 import AccountRegister from "../views/AccountRegister.vue";
+import OrderList from "../views/OrderList.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,6 +41,12 @@ const router = createRouter({
       path: "/register",
       name: "register",
       component: AccountRegister,
+    },
+
+    {
+      path: "/orderlist",
+      name: "orderlist",
+      component: OrderList,
     }
 
   ],

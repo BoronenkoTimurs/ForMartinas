@@ -45,7 +45,7 @@
           <RouterLink
             to="/register"
             class="bg-signUpBtn border-none py-3 px-5 mt-5 text-white rounded-md"
-            >Registration</RouterLink
+            >Register now</RouterLink
           >
           <button
             class="bg-loginBtn border-none py-3 px-5 mt-5 text-white rounded-md hover:bg-yellowHover"
