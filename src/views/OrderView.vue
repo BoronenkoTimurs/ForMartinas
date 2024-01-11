@@ -24,18 +24,7 @@ import { RouterLink } from "vue-router";
               v-model="name"
             />
           </div>
-          <div>
-            <label class="label">Email</label>
-            <input
-              placeholder="Email"
-              class="input"
-              type="email"
-              required
-              v-model="email"
-            />
-          </div>
-        
-          
+         
           <div>
             <label class="label">Phone Number</label>
             <input

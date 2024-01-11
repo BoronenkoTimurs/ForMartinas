@@ -5,21 +5,21 @@
       for="pickupCity"
       >Pickup City:</label
     >
-    <select class="select" v-model="pickupCity" id="pickupCity">
+    <select class="select " v-model="pickupCity" id="pickupCity">
       <option v-for="city in cities" :key="city">{{ city }}</option>
     </select>
 
     <label
-      class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      class="mb-2  text-sm font-medium text-gray-900 dark:text-white"
       for="deliveryCity"
       >Delivery City:</label
     >
-    <select class="select" v-model="deliveryCity" id="deliveryCity">
+    <select class="select " v-model="deliveryCity" id="deliveryCity">
       <option v-for="city in cities" :key="city">{{ city }}</option>
     </select>
 
     <button
-      class="bg-pink p-2 rounded-md text-white border-2 mx-auto flex mt-4 hover:bg-pinkHover"
+      class="bg-pink  p-2 rounded-md text-white border-2 mx-auto flex mt-4 hover:bg-pinkHover"
       @click="calculateDeliveryInfo"
     >
       Calculate Delivery
@@ -35,10 +35,13 @@
   </div>
 </template>
 
-<script>
+
+<script> 
 export default {
+  
   data() {
     return {
+      distanceMatrix: [],
       pickupCity: "",
       deliveryCity: "",
       cities: [
@@ -63,6 +66,7 @@ export default {
     };
   },
   methods: {
+    
     calculateDistance(coord1, coord2) {
       const R = 6371;
       const [lat1, lon1] = coord1;
@@ -104,6 +108,23 @@ export default {
         deliveryTime,
       };
     },
+ 
+   generateDistanceMatrix() {
+      const cities = Object.keys(this.cityCoordinates);
+      this.distanceMatrix = cities.map((city1) => {
+        return cities.map((city2) => {
+          if (city1 === city2) return 0;
+          return this.calculateDistance(
+            this.cityCoordinates[city1],
+            this.cityCoordinates[city2]
+          );
+        });
+      });
+    },
   },
+  created() {
+    this.generateDistanceMatrix();
+  },
+
 };
 </script>
