@@ -3,7 +3,7 @@ import { getOrders, addOrder } from "../controllers/order";
 
 const orderRouter = Router();
 
-orderRouter.get("/orders", getOrders);
-orderRouter.post("/orders", addOrder);
+orderRouter.get("/order", getOrders);
+orderRouter.post("/order", addOrder);
 
 export default orderRouter;

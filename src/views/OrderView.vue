@@ -1,6 +1,4 @@
-<script setup>
-import { RouterLink } from "vue-router";
-</script>
+<script setup></script>
 <template>
   <main class="h-screen">
     <div class="bg-purple h-full">
@@ -10,7 +8,7 @@ import { RouterLink } from "vue-router";
         Make an order
       </p>
       <form
-        @submit.prevent="handleSubmit"
+        @submit.prevent="makeOrder"
         class="my-7 max-w-xl mx-auto p-10 rounded-xl"
       >
         <div class="grid grid-cols-2 gap-4">
@@ -21,10 +19,20 @@ import { RouterLink } from "vue-router";
               class="input"
               type="text"
               required
-              v-model="name"
+              v-model="order.customerName"
             />
           </div>
-         
+          <div>
+            <label class="label">Email</label>
+            <input
+              placeholder="Email"
+              class="input"
+              type="email"
+              required
+              v-model="order.email"
+            />
+          </div>
+
           <div>
             <label class="label">Phone Number</label>
             <input
@@ -32,44 +40,74 @@ import { RouterLink } from "vue-router";
               class="input"
               type="text"
               required
-              v-model="number"
+              v-model="order.phoneNumber"
+            />
+          </div>
+          <div>
+            <label class="label">City From</label>
+            <input
+              placeholder="City From"
+              class="input"
+              type="text"
+              required
+              v-model="order.cityFrom"
+            />
+          </div>
+          <div>
+            <label class="label">City to:</label>
+            <input
+              placeholder="City to"
+              class="input"
+              type="text"
+              required
+              v-model="order.cityTo"
             />
           </div>
         </div>
+        <div class="text-center flex items-center justify-center">
+          <button
+            type="submit"
+            class="bg-pink border-none py-3 px-5 mt-5 text-white rounded-md"
+          >
+            Registration
+          </button>
+        </div>
         <DeliveryCalculator />
       </form>
-      <div class="text-center flex place-content-end">
-        
-        <RouterLink
-            to="/tyfororder"
-            class="bg-pink shadow-2xl border-none py-3 px-8 mt-5 mr-20 text-white rounded-md"
-            >Make order</RouterLink
-          >
-      </div>
     </div>
   </main>
 </template>
 
 <script>
 import DeliveryCalculator from "@/components/DeliveryCalculator.vue";
-
+import axios from "axios";
 export default {
   components: {
     DeliveryCalculator,
   },
   data() {
     return {
-      email: "",
-      password: "",
-      passwordErr: "",
+      order: {
+        customerName: "",
+        email: "",
+        phoneNumber: "",
+        cityTo: "",
+        cityFrom: "",
+      },
     };
   },
   methods: {
-    handleSubmit() {
-      this.passwordErr =
-        this.password.length > 5
-          ? ""
-          : "Small password! Need more than 9 symbols!";
+    async makeOrder() {
+      try {
+        const response = await axios.post(
+          "http://localhost:3333/order",
+          this.order
+        );
+        this.$router.push({
+          name: "tyfororder",
+          params: { userId: response.data.id },
+        });
+      } catch (error) {}
     },
   },
 };

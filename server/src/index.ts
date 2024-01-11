@@ -14,8 +14,6 @@ import cors from "cors";
 
 const app = express();
 
-console.log("MongoDB URL:", MONGOURL);
-
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());

@@ -1,12 +1,15 @@
 import mongoose, { Schema } from "mongoose";
 
 const OrderSchema = new Schema({
-  orderId: {
+  customerName: {
     type: String,
-    required: true,
-    unique: true
+    require: true,
   },
-  customer: {
+  email: {
+    type: String,
+    require: true,
+  },
+  phoneNumber: {
     type: String,
     require: true,
   },
@@ -27,6 +30,5 @@ const OrderSchema = new Schema({
     default: Date.now,
   },
 });
-
 
 export const OrderModel = mongoose.model("Order", OrderSchema);

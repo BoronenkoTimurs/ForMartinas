@@ -3,16 +3,16 @@ import { Request, Response } from "express";
 import { OrderModel } from "../model/orderModel";
 
 export const addOrder = async (req: Request, res: Response) => {
-  const { orderId, customer, cityFrom, cityTo } = req.body;
+  const { customerName, email, phoneNumber, cityFrom, cityTo } = req.body;
 
-  if (!orderId || !customer || !cityFrom || !cityTo) {
+  if (!customerName || !email || !phoneNumber || !cityFrom || !cityTo) {
     return res
       .status(400)
       .json({ message: "For creating order, send all required fields!" });
   }
 
   try {
-    const newOrder = { orderId, customer, cityFrom, cityTo };
+    const newOrder = { customerName, email, phoneNumber, cityFrom, cityTo };
     const order = await OrderModel.create(newOrder);
     return res.status(201).json(order);
   } catch (error) {
