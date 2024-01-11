@@ -1,21 +1,20 @@
 import express from "express";
 import mongoose from "mongoose";
-import { MONGOURL, PORT, NODE_ENV } from "./constants/const";
+import { MONGOURL, PORT } from "./constants/const";
+
 import postRouter from "./routes/post.routes";
 import authRouter from "./routes/auth.routes";
+import orderRouter from "./routes/order.routes";
+
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import userRouter from "./routes/user.routes";
 import cookieParser from "cookie-parser";
-import morgan from "morgan";
 import cors from "cors";
 
 const app = express();
 
-if (NODE_ENV === "development") {
-  app.use(morgan("tiny"));
-  console.log(`Enviroment: ${NODE_ENV}`);
-}
+console.log("MongoDB URL:", MONGOURL);
 
 app.use(express.json());
 app.use(cookieParser());
@@ -37,17 +36,16 @@ app.use(
 app.use("/", authRouter);
 app.use("/", userRouter);
 app.use("/", postRouter);
+app.use("/", orderRouter);
 
-mongoose
-  .connect(MONGOURL)
-  .then(() => {
+if (MONGOURL) {
+  try {
+    mongoose.connect(MONGOURL);
     console.log(`Webpage connected to database`);
     app.listen(PORT, () => {
       console.log(`Server is running on http:/localhost:${PORT}/`);
     });
-  })
-  .catch((error) => {
+  } catch (error) {
     console.log(error);
-  });
-
-console.log(`Enviroment: ${NODE_ENV}`);
+  }
+}
