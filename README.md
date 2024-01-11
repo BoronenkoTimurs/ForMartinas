@@ -10,13 +10,12 @@
 
 | Servera puse |  |
 | --- | ----------- |
-| Satvars | Flask |
-| Programmēšanas valoda | Python |
 | Frontend | JavaScript |
 | Satvars | Vue |
-| Datu bāze | Firebase |
+| Satvars | TypeScript |
+| Datu bāze | MongoDB |
 | OS | Windows |
-| Serveris |  Azure |
+| Serveris |  local |
 
 
 ## Concept
