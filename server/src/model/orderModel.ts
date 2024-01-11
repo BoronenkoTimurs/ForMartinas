@@ -1,6 +1,11 @@
 import mongoose, { Schema } from "mongoose";
 
 const OrderSchema = new Schema({
+  orderId: {
+    type: String,
+    required: true,
+    unique: true
+  },
   customer: {
     type: String,
     require: true,
@@ -22,5 +27,6 @@ const OrderSchema = new Schema({
     default: Date.now,
   },
 });
+
 
 export const OrderModel = mongoose.model("Order", OrderSchema);

@@ -3,16 +3,16 @@ import { Request, Response } from "express";
 import { OrderModel } from "../model/orderModel";
 
 export const addOrder = async (req: Request, res: Response) => {
-  const { customer, cityFrom, cityTo } = req.body;
+  const { orderId, customer, cityFrom, cityTo } = req.body;
 
-  if (!customer || !cityFrom || !cityTo) {
+  if (!orderId || !customer || !cityFrom || !cityTo) {
     return res
       .status(400)
-      .json({ message: "For creating send all required fields!" });
+      .json({ message: "For creating order, send all required fields!" });
   }
 
   try {
-    const newOrder = { customer, cityFrom, cityTo };
+    const newOrder = { orderId, customer, cityFrom, cityTo };
     const order = await OrderModel.create(newOrder);
     return res.status(201).json(order);
   } catch (error) {
@@ -30,6 +30,7 @@ export const getOrders = async (req: Request, res: Response) => {
     return res.status(500).json({ message: `Error while showing all orders!` });
   }
 };
+
 // export const getPostByID = async (req: Request, res: Response) => {
 //   const { id } = req.params;
 
