@@ -16,14 +16,7 @@
           
    
         </div>
-      <div
-        class="flex flex-col font-bold font-monoopacity-400 text-orange text-center text-5xl"
-      >
-        <p>
-          
-          Your order
-        </p>
-      </div>
+    
     </div>
   </div>
 </template>
