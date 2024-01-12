@@ -63,6 +63,10 @@
               v-model="order.cityTo"
             />
           </div>
+          <div>
+            <label class="label">Price:</label>
+            <input placeholder="City to" class="input" type="number" required />
+          </div>
         </div>
         <div class="text-center flex items-center justify-center">
           <button

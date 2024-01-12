@@ -30,43 +30,46 @@ export const getOrders = async (req: Request, res: Response) => {
     return res.status(500).json({ message: `Error while showing all orders!` });
   }
 };
+export const deleteOrder = async (req: Request, res: Response) => {
+  const { id } = req.params;
 
-// export const getPostByID = async (req: Request, res: Response) => {
-//   const { id } = req.params;
+  try {
+    const result = await OrderModel.findByIdAndDelete(id);
 
-//   try {
-//     const post = await PostModel.findById(id);
+    if (!result) {
+      return res
+        .status(404)
+        .json({ message: `Order with id: ${id} not found!` });
+    }
 
-//     if (!post) {
-//       return res
-//         .status(404)
-//         .json({ message: `Post with id: ${id} not found!` });
-//     }
+    return res.status(200).json({ message: `Order with id: ${id} deleted!` });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: `Error while deleting post!` });
+  }
+};
 
-//     return res.status(200).json({ data: post });
-//   } catch (error) {
-//     console.error(error);
-//     return res.status(500).json({ message: `Error while showing post by ID!` });
-//   }
-// };
-// export const deletePost = async (req: Request, res: Response) => {
-//   const { id } = req.params;
+export const getOrderByID = async (req: Request, res: Response) => {
+  const { id } = req.params;
 
-//   try {
-//     const result = await PostModel.findByIdAndDelete(id);
+  try {
+    const order = await OrderModel.findById(id);
 
-//     if (!result) {
-//       return res
-//         .status(404)
-//         .json({ message: `Post with id: ${id} not found!` });
-//     }
+    if (!order) {
+      return res
+        .status(404)
+        .json({ message: `Order with id: ${id} not found!` });
+    }
 
-//     return res.status(200).json({ message: `Post with id: ${id} deleted!` });
-//   } catch (error) {
-//     console.error(error);
-//     return res.status(500).json({ message: `Error while deleting post!` });
-//   }
-// };
+    return res.status(200).json({ data: order });
+  } catch (error) {
+    console.error(error);
+    return res
+      .status(500)
+      .json({ message: `Error while showing order by ID!` });
+  }
+};
+
 // export const updatePost = async (req: Request, res: Response) => {
 //   const { title, content, author } = req.body;
 //   const { id } = req.params;
