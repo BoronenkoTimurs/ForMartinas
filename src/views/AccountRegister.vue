@@ -34,7 +34,7 @@
           class="inline-block mb-2 tracking-wide text-white opacity-50 uppercase font-bold"
           >Username</label
         >
-        
+
         <input
           class="block py-3 mb-2 outline-none px-2 w-full box-border text-slate-600 rounded-md"
           type="text"
@@ -42,21 +42,20 @@
           v-model="user.username"
         />
 
-        <div class="text-center flex items-center justify-center">
+        <div class="text-center flex items-center justify-between">
           <button
             type="submit"
             class="bg-signUpBtn border-none py-3 px-5 mt-5 text-white rounded-md"
           >
             Registration
           </button>
+          <RouterLink
+            activeClass="active"
+            class="bg-yellow border-none py-3 px-5 mt-5 text-white rounded-md"
+            to="/auth/login"
+            >Return</RouterLink
+          >
         </div>
-
-        <RouterLink
-          activeClass="active"
-          class="flex items-center justify-center py-4 hover:text-yellowHover"
-          to="/auth/login"
-          >return to login</RouterLink
-        >
       </form>
     </div>
   </div>
